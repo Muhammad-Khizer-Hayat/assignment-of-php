@@ -50,7 +50,7 @@
                    <th ><?php echo $id;  ?></th>
                     <td><?php echo $name;  ?></td>
                     <td><?php echo $email;  ?></td>
-                    <td><a href="edit-data.php?id=<?=$id?>" class="btn btn-warning btn-sm">Edit</a>
+                    <td><a href="edit.php?id=<?=$id?>" class="btn btn-warning btn-sm">Edit</a>
                           |  
                     <a href="" class="btn btn-danger btn-sm">Delete</a></a> </td>
                 </tr>

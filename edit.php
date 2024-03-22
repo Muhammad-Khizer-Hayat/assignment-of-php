@@ -1,7 +1,23 @@
 <?php
 //database Connection
-$db_con=mysqli_connect("localhost","root","","users")
+$db_con=mysqli_connect("localhost","root","","users");
+if($db_con){
+    echo "database connected";
+}
 
+
+$id=$_GET['id'];
+
+$sql = "SELECT * FROM `users_info`  WHERE id=$id";
+$result = mysqli_query($db_con, $sql);
+
+
+if(mysqli_num_rows($result) > 0){
+    $result = mysqli_fetch_assoc($result);
+    // echo "<pre>"; print_r($result); echo "</pre>"; 
+    } else {
+    die("no record found");
+    }
 ?>
 
 
@@ -9,8 +25,6 @@ $db_con=mysqli_connect("localhost","root","","users")
 <!DOCTYPE html>
 <html lang="en">
     <head>
-
-
 <title>Registration-form</title>
 <link rel="stylesheet" href="./Bootstrap/css/bootstrap.min.css">
 <script src="./Bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -22,7 +36,9 @@ $db_con=mysqli_connect("localhost","root","","users")
 
 <h2 class="text-center text-white bg-primary p-2 mb-3">Registration Form</h2>
 
-<form method="POST" action="<?= $_SERVER['PHP_SELF'] ?>">
+<form method="POST" action="update.php">
+
+<input type="text" value="<?= $id?>" name="id">
 
     <label class="form-label">Name</label>
 
@@ -37,4 +53,4 @@ $db_con=mysqli_connect("localhost","root","","users")
 </form>
 </div>
 </body>
-</html>
+</html>     

@@ -14,6 +14,7 @@ $email=$_POST['email'];
   $sql = "INSERT INTO users_info (`name`, `email`) VALUES('$name', '$email')";
 
   $result = mysqli_query($db_con, $sql);
+  header("Location:show_data.php");
   if($result){
     echo "Data Inserted Successfully";
   }
